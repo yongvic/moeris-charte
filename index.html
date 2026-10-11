@@ -2300,7 +2300,7 @@ addEventListener("keydown",e=>{if(e.key==="Escape"){closeDrawer();closeMenu();}}
 
 function setAtelier(on){
   document.body.classList.toggle("atelier",on);
-  const b=$("#atelierBtn");b.classList.toggle("on",on);b.setAttribute("aria-pressed",String(on));
+  const b=$("#atelierBtn");if(!b)return;b.classList.toggle("on",on);b.setAttribute("aria-pressed",String(on));
 }
 function pageMarks(){
   let n=1;
