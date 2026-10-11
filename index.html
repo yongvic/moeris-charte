@@ -598,16 +598,10 @@ body.atelier .shot.dropping{outline:2px dashed var(--or);outline-offset:-6px}
 .ico-t span{position:absolute;bottom:9px;left:0;right:0;text-align:center;font-size:10.5px;letter-spacing:.06em;color:var(--gris-lac)}
 @media (max-width:900px){.icons{grid-template-columns:repeat(4,1fr)}}
 @media (max-width:560px){.icons{grid-template-columns:repeat(3,1fr)}}
-.pats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,3vw,40px) 22px}
-.pat-f{margin:0;min-width:0}
-.pat{border-radius:var(--radius);aspect-ratio:16/10;position:relative;overflow:hidden;box-shadow:0 18px 40px -26px rgba(11,26,27,.35)}
-.pat.line{box-shadow:inset 0 0 0 1px var(--filet),0 18px 40px -26px rgba(11,26,27,.25)}
-.pat svg.bgp{position:absolute;inset:0;width:100%;height:100%;display:block}
-.pat.line::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px var(--filet);pointer-events:none}
-.pat-f figcaption{display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:baseline;margin-top:16px}
-.pat-f .pn{font-family:var(--font-display);font-weight:800;font-size:14px;color:var(--or-texte)}
-.pat-f b{font-family:var(--font-display);font-size:clamp(19px,1.7vw,22px);letter-spacing:-.01em}
-.pat-f .pu{grid-column:2;font-size:15px;line-height:1.5;color:var(--gris-lac)}
+.pats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.pat{border-radius:22px;aspect-ratio:16/10;position:relative;overflow:hidden}
+.pat svg.bgp{position:absolute;inset:0;width:100%;height:100%}
+.pat .lbl{position:absolute;left:18px;bottom:14px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:rgba(11,26,27,.78);color:var(--ivoire)}
 @media (max-width:640px){.pats{grid-template-columns:1fr}}
 .frames{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:end}
 .frames .fr{aspect-ratio:3/4;background:radial-gradient(70% 55% at 50% 100%,rgba(212,175,55,.7),rgba(212,175,55,.18) 50%,transparent 70%),linear-gradient(170deg,var(--ivoire),var(--sable));position:relative}
@@ -1479,7 +1473,7 @@ body.atelier .atelier-only{display:inline-flex}
     <div class="head rv prose">
       <span class="eyebrow">Motifs</span>
       <h2 class="sheet-title">Quatre trames pour habiller.</h2>
-      <p>Chaque motif répète une pièce du logo, dans l'ordre de sa construction : le rayon, les ailes, les arches, puis le monogramme entier. Toujours droites, à pas régulier, en quinconce. En fond, entre 8 et 20 % d'opacité, ou en aplat franc pour un accent. Jamais en pleine force derrière du texte.</p>
+      <p>Les motifs répètent les pièces du logo. On les utilise en fond, entre 8 et 20 % d'opacité, ou en aplat franc pour un accent. Jamais en pleine force derrière du texte.</p>
     </div>
     <div class="pats rv" id="pats"></div>
   </div>
@@ -2456,40 +2450,18 @@ function buildGraphics(){
 
   $("#icons").innerHTML=ICONS.map(i=>`<div class="ico-t"><svg viewBox="0 0 24 24">${i[1]}</svg><span>${i[0]}</span></div>`).join("");
 
-  /* Motifs : chaque trame répète une pièce réelle du logo, droite, à pas régulier,
-     en quinconce (une rangée sur deux décalée d'un demi-pas). Seules les pièces entières
-     sont posées et l'ensemble est centré : aucune forme coupée au bord de la tuile.
-     Même échelle pour les quatre trames (viewBox 1400 x 875). */
-  const VW=1400,VH=875,MG=60;
-  const shape=(keys,dx={})=>{ // pièces posées dans le repère du monogramme, puis ramenées en 0,0
-    const xs=[],ys=[];keys.forEach(k=>{const b=BB[k],o=dx[k]||0;xs.push(b[0]+o,b[2]+o);ys.push(b[1],b[3]);});
-    const x0=Math.min(...xs),y0=Math.min(...ys);
-    return {w:Math.max(...xs)-x0,h:Math.max(...ys)-y0,
-      g:keys.map(k=>`<path d="${PCS[k]}" transform="translate(${((dx[k]||0)-x0).toFixed(2)},${(-y0).toFixed(2)})"/>`).join("")};
-  };
-  const MOTIFS=[
-    {id:"mRa",name:"Rayon",n:"01",sh:shape(["ra"]),W:118,H:108,bg:"#FFFFFF",fg:"#D4AF37",line:true,
-     use:"Papeterie : dos des cartes de visite, cartes-clés, papier de soie, enveloppes."},
-    {id:"mWi",name:"Ailes",n:"02",sh:shape(["wl","wr"]),W:236,H:106,bg:"#F6F0E2",fg:"#14393B",
-     use:"Linge : bordures de serviettes et de peignoirs, housses de coussin, rideaux."},
-    {id:"mAr",name:"Arches",n:"03",sh:shape(["al","ar"],{ar:(BB.al[2]+12)-BB.ar[0]}),W:166,H:114,bg:"#EFE7D3",fg:"#B08F25",
-     use:"Signalétique et espaces : reliefs muraux, vitrophanie, portes et cloisons."},
-    {id:"mMk",name:"Monogramme",n:"04",sh:shape(ORDER),W:256,H:180,bg:"#0B1A1B",fg:"#D4AF37",
-     use:"Packaging : coffrets, sacs, papier cadeau, doublures et boîtes."}
-  ];
-  const motifSVG=m=>{
-    const {w,h,g}=m.sh,pos=[];
-    const rows=Math.floor((VH-2*MG-h)/m.H)+1;
-    const cols=Math.floor((VW-2*MG-w)/m.W)+1; // rangées paires : cols pièces ; impaires : cols-1, centrées entre elles
-    for(let r=0;r<rows;r++){
-      const odd=r%2, c=odd?cols-1:cols;
-      for(let i=0;i<c;i++)pos.push([i*m.W+(odd?m.W/2:0),r*m.H]);
-    }
-    const mx=Math.max(...pos.map(p=>p[0]))+w,my=Math.max(...pos.map(p=>p[1]))+h;
-    const ox=(VW-mx)/2,oy=(VH-my)/2;
-    return `<svg class="bgp" viewBox="0 0 ${VW} ${VH}" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><defs><g id="${m.id}">${g}</g></defs><rect width="${VW}" height="${VH}" fill="${m.bg}"/><g fill="${m.fg}">${pos.map(p=>`<use href="#${m.id}" x="${(p[0]+ox).toFixed(1)}" y="${(p[1]+oy).toFixed(1)}"/>`).join("")}</g></svg>`;
-  };
-  $("#pats").innerHTML=MOTIFS.map(m=>`<figure class="pat-f"><div class="pat${m.line?" line":""}">${motifSVG(m)}</div><figcaption><span class="pn">${m.n}</span><b>${m.name}</b><span class="pu">${m.use}</span></figcaption></figure>`).join("");
+  const pat=(id,w,h,inner)=>`<pattern id="${id}" width="${w}" height="${h}" patternUnits="userSpaceOnUse">${inner}</pattern>`;
+  const tile=(id,bg,label,w,h,inner,lblc)=>`<div class="pat" style="background:${bg}"><svg class="bgp"><defs>${pat(id,w,h,inner)}</defs><rect width="100%" height="100%" fill="url(#${id})"/></svg><span class="lbl">${label}</span></div>`;
+  const g="#D4AF37";
+  const A=pieceAt("al",6,5,.5,g,.9)+pieceAt("ar",37,5,.5,g,.9)+pieceAt("al",6,43,.5,g,.55)+pieceAt("ar",37,43,.5,g,.55);
+  const B=pieceAt("ra",9,3,.4,"#F6F0E2",.2)+pieceAt("ra",9,32,.4,"#F6F0E2",.2,180);
+  const C=pieceAt("wl",2,3,.42,"#7A5C0C",.28)+pieceAt("wr",34,3,.42,"#7A5C0C",.28)+pieceAt("wr",2,27,.42,"#7A5C0C",.28)+pieceAt("wl",34,27,.42,"#7A5C0C",.28);
+  const D=pieceAt("wl",0,0,0,"none",0)+`<g transform="translate(4,3) scale(.3)">${piecesSVG()}</g>`+`<g transform="translate(55,42) scale(.3)">${piecesSVG()}</g>`;
+  $("#pats").innerHTML=
+    tile("pA","#0B1A1B","Arches",70,76,A)+
+    tile("pB","#14393B","Rayons",38,62,B)+
+    tile("pC","#EFE7D3","Ailes",66,52,C)+
+    tile("pD","#0B1A1B","Monogramme",102,78,D);
 }
 
 /* ==========================================================================
