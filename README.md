@@ -6,9 +6,9 @@ Brand book interactif (une seule page HTML) de la Résidence Moeris, hôtel au b
 
 ```
 index.html          La charte (page autonome)
-images/             Images générées (50 emplacements)
+images/             Images générées (54 emplacements)
 assets/brand/       Logos à joindre à Gemini : logo_blanc, logo_noir, icon (SVG + PNG)
-prompts.json        Les 50 prompts complets (brief commun + prompt), format, logo à joindre
+prompts.json        Les 54 prompts complets (brief commun + prompt), format, logo à joindre
 ```
 
 ## Images
