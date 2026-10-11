@@ -2456,12 +2456,12 @@ function buildGraphics(){
   const A=pieceAt("al",6,5,.5,g,.9)+pieceAt("ar",37,5,.5,g,.9)+pieceAt("al",6,43,.5,g,.55)+pieceAt("ar",37,43,.5,g,.55);
   const B=pieceAt("ra",9,3,.4,"#F6F0E2",.2)+pieceAt("ra",9,32,.4,"#F6F0E2",.2,180);
   const C=pieceAt("wl",2,3,.42,"#7A5C0C",.28)+pieceAt("wr",34,3,.42,"#7A5C0C",.28)+pieceAt("wr",2,27,.42,"#7A5C0C",.28)+pieceAt("wl",34,27,.42,"#7A5C0C",.28);
-  const D=pieceAt("wl",0,0,0,"none",0)+`<g transform="translate(4,3) scale(.3)">${piecesSVG()}</g>`+`<g transform="translate(55,42) scale(.3)">${piecesSVG()}</g>`;
+  const D=pieceAt("wl",0,0,0,"none",0)+`<g transform="translate(4,4) scale(.3)">${piecesSVG()}</g>`+`<g transform="translate(4,50) scale(.3)">${piecesSVG()}</g>`+`<g transform="translate(57,27) scale(.3)">${piecesSVG()}</g>`+`<g transform="translate(57,73) scale(.3)">${piecesSVG()}</g>`+`<g transform="translate(57,-19) scale(.3)">${piecesSVG()}</g>`;
   $("#pats").innerHTML=
     tile("pA","#0B1A1B","Arches",70,76,A)+
     tile("pB","#14393B","Rayons",38,62,B)+
     tile("pC","#EFE7D3","Ailes",66,52,C)+
-    tile("pD","#0B1A1B","Monogramme",102,78,D);
+    tile("pD","#0B1A1B","Monogramme",106,92,D);
 }
 
 /* ==========================================================================
