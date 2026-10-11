@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Résidence Moeris, charte graphique 2026</title>
-<meta name="description" content="Charte graphique de Résidence Moeris : logo, couleurs, typographie et applications. Une nouvelle ère se lève.">
+<title>Résidence Moeris, proposition de charte graphique 2026</title>
+<meta name="description" content="Proposition de charte graphique pour la nouvelle ère de la Résidence Moeris : logo, couleurs, typographie et applications.">
 <meta name="theme-color" content="#F6F0E2">
 <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://api.fontshare.com">
@@ -73,7 +73,7 @@ p{margin:0 0 1em}
 /* --------------------------------------------------------------------------
    Logo colouring tokens
    -------------------------------------------------------------------------- */
-.lg,.mk,.wm,.lv{display:block;height:auto}
+.lg,.mk{display:block;height:auto}
 .on-nuit,.on-eau{--mk:var(--or);--tx:#fff}
 .on-ivoire,.on-blanc{--mk:var(--or);--tx:#000}
 .mono-nuit{--mk:var(--nuit);--tx:var(--nuit)}
@@ -85,11 +85,17 @@ p{margin:0 0 1em}
    Header
    -------------------------------------------------------------------------- */
 .topbar{
-  position:fixed;inset:0 0 auto 0;z-index:60;display:flex;align-items:center;justify-content:space-between;
-  padding:14px var(--gutter);pointer-events:none;
-  background:linear-gradient(to bottom,rgba(11,26,27,.78),rgba(11,26,27,0));
+  position:fixed;top:12px;left:clamp(10px,2vw,28px);right:clamp(10px,2vw,28px);max-width:1360px;margin:0 auto;z-index:60;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:7px 7px 7px 18px;border-radius:999px;
+  /* verre liquide, variante sombre (sections .deep) */
+  background:rgba(11,26,27,.52);
+  -webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);
+  border:1px solid rgba(246,240,226,.16);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14),inset 0 -1px 0 rgba(212,175,55,.32),0 14px 36px -16px rgba(0,0,0,.55);
+  transition:background .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease)
 }
-.topbar>*{pointer-events:auto}
+.topbar .where{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .topbar .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .topbar .brand svg{width:34px}
 .topbar .where{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--brume);transition:opacity .3s}
@@ -153,14 +159,15 @@ p{margin:0 0 1em}
 @keyframes rise{from{transform:translateY(18vw);opacity:0}to{transform:none;opacity:1}}
 .cover .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(20px,5vw,80px);align-items:center;padding:120px 0 110px}
 .cover .eyebrow{margin-bottom:28px}
-.cover h1{font-size:clamp(46px,8.6vw,132px);line-height:.94;letter-spacing:-.035em}
+.cover h1{font-size:clamp(44px,7.6vw,118px);line-height:.94;letter-spacing:-.035em}
 .cover h1 em{font-style:normal;color:var(--or-grand);background:linear-gradient(180deg,var(--or-grand) 10%,var(--or-texte) 95%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .cover h1 .l{display:block;overflow:hidden}
 .cover h1 .l>span{display:block;animation:slideUp 1.1s var(--ease) both}
 .cover h1 .l:nth-child(2)>span{animation-delay:.12s}
 .cover h1 .l:nth-child(3)>span{animation-delay:.24s}
 @keyframes slideUp{from{transform:translateY(105%)}to{transform:none}}
-.cover .sub{max-width:44ch;margin-top:32px;color:var(--gris-lac);font-size:clamp(16px,1.5vw,19px);animation:fadeIn 1.4s .7s both}
+.cover .kicker{max-width:30ch;margin:30px 0 0;font-family:var(--font-display);font-weight:700;font-size:clamp(19px,1.9vw,25px);line-height:1.3;letter-spacing:-.01em;color:var(--nuit);padding-left:18px;border-left:2px solid var(--or);animation:fadeIn 1.3s .5s both}
+.cover .sub{max-width:44ch;margin-top:18px;color:var(--gris-lac);font-size:clamp(16px,1.5vw,19px);animation:fadeIn 1.4s .7s both}
 .cover .mark{width:min(100%,520px);margin-left:auto;position:relative;filter:drop-shadow(0 24px 40px rgba(169,138,31,.18))}
 .cover .mark::before{content:"";position:absolute;inset:-22%;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,rgba(255,253,246,.9),rgba(255,253,246,.55) 55%,rgba(255,253,246,0))}
 .cover .meta{
@@ -393,6 +400,7 @@ body.atelier .shot.dropping{outline:2px dashed var(--or);outline-offset:-6px}
 .ere .old{background:var(--ivoire-2)}
 .ere .old img{width:100%;height:auto;border-radius:2px;box-shadow:0 26px 50px -26px rgba(11,26,27,.5)}
 .ere .pane.stagebox .lg{width:100%}
+.ere .pane.new{background:#FFFFFF;background-image:none;box-shadow:inset 0 0 0 1px rgba(11,26,27,.12)}
 .ere figcaption{display:flex;justify-content:space-between;gap:12px;margin-top:14px;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
 .ere figcaption b{color:var(--or-texte);font-weight:700}
 .ere-pairs{list-style:none;margin:clamp(34px,4.5vw,60px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:26px 22px}
@@ -425,8 +433,9 @@ body.atelier .shot.dropping{outline:2px dashed var(--or);outline-offset:-6px}
 .tile{border-radius:18px;display:grid;place-items:center;position:relative;aspect-ratio:var(--ar,16/10);padding:8%;overflow:hidden}
 .tile .lg{width:100%}
 .tile .mk{width:34%}
-.tile .wm{width:68%}
-.tile .lv{width:46%}
+.decl{display:grid;grid-template-columns:1.55fr 1fr;gap:22px;align-items:stretch}
+.decl .tile{--ar:auto;min-height:clamp(240px,28vw,380px);box-shadow:inset 0 0 0 1px var(--filet)}
+@media (max-width:760px){.decl{grid-template-columns:1fr}.decl .tile{min-height:220px}}
 .tile .tag{position:absolute;left:14px;bottom:10px;max-width:calc(100% - 28px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
 .bg-nuit{background:var(--nuit);color:var(--ivoire)}
 .bg-eau{background:var(--eau);color:var(--ivoire)}
@@ -589,10 +598,16 @@ body.atelier .shot.dropping{outline:2px dashed var(--or);outline-offset:-6px}
 .ico-t span{position:absolute;bottom:9px;left:0;right:0;text-align:center;font-size:10.5px;letter-spacing:.06em;color:var(--gris-lac)}
 @media (max-width:900px){.icons{grid-template-columns:repeat(4,1fr)}}
 @media (max-width:560px){.icons{grid-template-columns:repeat(3,1fr)}}
-.pats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.pat{border-radius:22px;aspect-ratio:16/10;position:relative;overflow:hidden}
-.pat svg.bgp{position:absolute;inset:0;width:100%;height:100%}
-.pat .lbl{position:absolute;left:18px;bottom:14px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:rgba(11,26,27,.78);color:var(--ivoire)}
+.pats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,3vw,40px) 22px}
+.pat-f{margin:0;min-width:0}
+.pat{border-radius:var(--radius);aspect-ratio:16/10;position:relative;overflow:hidden;box-shadow:0 18px 40px -26px rgba(11,26,27,.35)}
+.pat.line{box-shadow:inset 0 0 0 1px var(--filet),0 18px 40px -26px rgba(11,26,27,.25)}
+.pat svg.bgp{position:absolute;inset:0;width:100%;height:100%;display:block}
+.pat.line::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px var(--filet);pointer-events:none}
+.pat-f figcaption{display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:baseline;margin-top:16px}
+.pat-f .pn{font-family:var(--font-display);font-weight:800;font-size:14px;color:var(--or-texte)}
+.pat-f b{font-family:var(--font-display);font-size:clamp(19px,1.7vw,22px);letter-spacing:-.01em}
+.pat-f .pu{grid-column:2;font-size:15px;line-height:1.5;color:var(--gris-lac)}
 @media (max-width:640px){.pats{grid-template-columns:1fr}}
 .frames{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:end}
 .frames .fr{aspect-ratio:3/4;background:radial-gradient(70% 55% at 50% 100%,rgba(212,175,55,.7),rgba(212,175,55,.18) 50%,transparent 70%),linear-gradient(170deg,var(--ivoire),var(--sable));position:relative}
@@ -734,10 +749,27 @@ body.atelier .atelier-only{display:inline-flex}
 .flats>div:has(.card-f){width:310px}.flats>div:has(.a4){width:250px}.flats>div:has(.env){width:350px}
 .flats>div:has(.key-f),.flats>div:has(.badge-f){width:170px}
 .card-f,.a4,.env,.key-f,.badge-f{width:100%}
-.topbar{transition:background .3s}
-.topbar.lt{background:linear-gradient(to bottom,rgba(255,255,255,.94),rgba(255,255,255,.7) 55%,rgba(255,255,255,0))}
-.topbar.lt .where{color:var(--gris-lac)}
-.topbar.lt .pill:not(.on){background:rgba(255,255,255,.88);color:var(--nuit);border-color:rgba(11,26,27,.2)}
+/* Barre du haut : verre liquide clair (par défaut) */
+.topbar.lt{
+  background:rgba(255,253,248,.6);
+  border-color:rgba(255,255,255,.6);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.85),inset 0 0 0 1px rgba(255,255,255,.35),inset 0 -1px 0 rgba(155,127,33,.34),
+    0 1px 2px rgba(11,26,27,.06),0 14px 34px -14px rgba(11,26,27,.26);
+}
+.topbar.lt .where{color:var(--nuit)}
+.topbar .pill{backdrop-filter:none;-webkit-backdrop-filter:none}
+.topbar.lt .pill:not(.on){background:rgba(255,255,255,.62);color:var(--nuit);border-color:rgba(11,26,27,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.9)}
+/* Rail des chapitres : même verre, en capsule */
+.rail{padding:13px 9px;border-radius:999px;background:rgba(255,253,248,.55);
+  -webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);
+  border:1px solid rgba(255,255,255,.6);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.85),inset 0 0 0 1px rgba(155,127,33,.14),0 12px 30px -14px rgba(11,26,27,.28)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .topbar{background:rgba(11,26,27,.94)}
+  .topbar.lt{background:rgba(255,253,248,.96)}
+  .rail{background:rgba(255,253,248,.95)}
+}
+@media (max-width:640px){.topbar{top:8px;padding:6px 6px 6px 14px}}
 .topbar.lt .pill:not(.on):hover{border-color:var(--or-texte);color:var(--or-texte)}
 .cover .ph-bg .badge{top:auto;bottom:64px;left:auto;right:var(--gutter);transform:none}
 
@@ -763,18 +795,20 @@ body.atelier .atelier-only{display:inline-flex}
 .lnote.no::before{background:var(--terre)}
 .versions-head{margin-top:clamp(56px,7vw,96px)}
 .versions-head p{margin:0}
-.versions{list-style:none;margin:26px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.versions{list-style:none;margin:30px auto 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
 .versions li{min-width:0;display:flex;flex-direction:column;gap:6px}
-.versions .vv{aspect-ratio:16/10;border-radius:18px;background:var(--ivoire);box-shadow:inset 0 0 0 1px var(--filet);display:grid;place-items:center;margin-bottom:10px}
+.versions .vv{aspect-ratio:16/9;border-radius:var(--radius);background:var(--ivoire);box-shadow:inset 0 0 0 1px var(--filet);display:grid;place-items:center;margin-bottom:10px}
 .versions .vv svg{height:auto}
-.versions b{font-family:var(--font-display);font-size:20px;letter-spacing:-.01em}
-.versions span{font-size:14.5px;line-height:1.5;color:var(--gris-lac)}
+.versions li:first-child .vv{background:#FFFFFF}
+.versions b{font-family:var(--font-display);font-size:clamp(20px,1.9vw,24px);letter-spacing:-.01em;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.versions b small{font-family:var(--font-text);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--or-texte)}
+.versions span{font-size:15.5px;line-height:1.55;color:var(--gris-lac);max-width:52ch}
 .alpha{margin:clamp(34px,4vw,52px) 0 0;max-width:72ch;font-size:clamp(16px,1.5vw,19px);color:var(--nuit)}
 .alpha a{color:var(--or-texte);font-weight:700;text-decoration:none;border-bottom:1px solid var(--or);white-space:nowrap}
 .alpha a:hover{color:var(--nuit);border-color:var(--nuit)}
-@media (max-width:960px){.versions{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.versions{grid-template-columns:1fr}}
 @media (max-width:860px){.ere-adapt{grid-template-columns:1fr}}
-@media (max-width:420px){.versions{grid-template-columns:1fr}.alpha a{white-space:normal}}
+@media (max-width:420px){.alpha a{white-space:normal}}
 
 /* Pictogrammes pleins (alphabet des pièces) */
 .pictos-head{margin-top:clamp(56px,7vw,96px);margin-bottom:26px}
@@ -800,8 +834,6 @@ body.atelier .atelier-only{display:inline-flex}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
 <symbol id="mk" viewBox="0 0 155 117"><path d="M1.14823 0.376201C15.2361 -0.306252 31.6897 -0.956003 43.6648 7.05554C46.2182 8.75251 48.5315 10.7851 50.5425 13.0988C53.3618 16.336 76.0944 47.8917 76.4761 49.8596L75.9353 50.1579C55.0495 49.9351 34.1079 50.3807 13.2182 50.1687C8.98548 50.1256 4.79301 50.3017 0.575389 49.8524C-0.133658 45.5148 0.19265 37.9568 0.159587 33.2924C0.0981343 24.6143 0.122216 15.8689 0.108919 7.18744C0.106044 5.36289 -0.105629 1.60598 1.14823 0.376201Z" style="fill:var(--mk,#D4AF37);stroke:var(--sk,none);stroke-width:var(--sw,0);stroke-linejoin:round"/><path d="M132.833 0.373895C137.711 -0.0526832 149.147 0.0285261 153.897 0.570823C154.41 5.91329 154.664 46.9704 153.67 49.6377C149.008 51.0788 108.033 50.1301 100.461 50.1337C92.8695 50.1624 84.9223 49.8677 77.37 50.1984C79.6355 47.7409 82.2841 43.0554 84.3024 40.1693C99.0975 19.0118 104.15 2.41263 132.833 0.373895Z" style="fill:var(--mk,#D4AF37);stroke:var(--sk,none);stroke-width:var(--sw,0);stroke-linejoin:round"/><path d="M30.9762 55.3773C34.9742 55.3449 38.4386 55.291 42.4334 55.5929C42.8456 61.8065 42.6073 70.622 42.6088 77.0081L42.5505 116.564C32.2922 116.838 21.4592 116.665 11.1566 116.654C7.56072 116.661 4.05034 116.723 0.462345 116.417C0.370345 115.386 0.298473 114.351 0.247442 113.316C0.00809778 108.159 0.358847 102.711 0.183831 97.6649C-0.351278 82.2657 -0.743713 67.3588 14.6799 58.9782C20.4303 55.8517 24.5239 55.636 30.9762 55.3773Z" style="fill:var(--mk,#D4AF37);stroke:var(--sk,none);stroke-width:var(--sw,0);stroke-linejoin:round"/><path d="M111.666 55.6048C125.366 55.4072 138.053 53.8655 147.91 65.4086C156.014 74.5475 154.233 86.1733 154.221 97.4361C154.214 103.499 154.456 110.399 153.941 116.512C149.14 116.957 139.744 116.76 134.742 116.713C127.812 116.652 118.472 116.943 111.696 116.418C111.15 110.057 111.459 96.5089 111.508 89.7814C111.587 79.1439 111.097 65.9944 111.666 55.6048Z" style="fill:var(--mk,#D4AF37);stroke:var(--sk,none);stroke-width:var(--sw,0);stroke-linejoin:round"/><path d="M76.9604 52.5C77.636 53.2763 98.2497 111.42 99.4892 116.476C92.7517 116.911 84.4113 116.695 77.5512 116.688C71.1108 116.699 60.9603 116.918 54.7521 116.39C55.874 112.03 58.7368 104.272 60.2843 99.7866C63.8047 89.5911 67.3934 79.4172 71.0501 69.272C72.8502 64.345 75.6598 57.4198 76.9604 52.5Z" style="fill:var(--mk,#D4AF37);stroke:var(--sk,none);stroke-width:var(--sw,0);stroke-linejoin:round"/></symbol>
 <symbol id="lg" viewBox="0 0 457 118"><path d="M1.14823 0.376201C15.2361 -0.306252 31.6897 -0.956003 43.6648 7.05554C46.2182 8.75251 48.5315 10.7851 50.5425 13.0988C53.3618 16.336 76.0944 47.8917 76.4761 49.8596L75.9353 50.1579C55.0495 49.9351 34.1079 50.3807 13.2182 50.1687C8.98548 50.1256 4.79301 50.3017 0.575389 49.8524C-0.133658 45.5148 0.19265 37.9568 0.159587 33.2924C0.0981343 24.6143 0.122216 15.8689 0.108919 7.18744C0.106044 5.36289 -0.105629 1.60598 1.14823 0.376201Z" style="fill:var(--mk,#D4AF37);stroke:var(--sk,none);stroke-width:var(--sw,0);stroke-linejoin:round"/><path d="M132.833 0.373895C137.711 -0.0526832 149.147 0.0285261 153.897 0.570823C154.41 5.91329 154.664 46.9704 153.67 49.6377C149.008 51.0788 108.033 50.1301 100.461 50.1337C92.8695 50.1624 84.9223 49.8677 77.37 50.1984C79.6355 47.7409 82.2841 43.0554 84.3024 40.1693C99.0975 19.0118 104.15 2.41263 132.833 0.373895Z" style="fill:var(--mk,#D4AF37);stroke:var(--sk,none);stroke-width:var(--sw,0);stroke-linejoin:round"/><path d="M30.9762 55.3773C34.9742 55.3449 38.4386 55.291 42.4334 55.5929C42.8456 61.8065 42.6073 70.622 42.6088 77.0081L42.5505 116.564C32.2922 116.838 21.4592 116.665 11.1566 116.654C7.56072 116.661 4.05034 116.723 0.462345 116.417C0.370345 115.386 0.298473 114.351 0.247442 113.316C0.00809778 108.159 0.358847 102.711 0.183831 97.6649C-0.351278 82.2657 -0.743713 67.3588 14.6799 58.9782C20.4303 55.8517 24.5239 55.636 30.9762 55.3773Z" style="fill:var(--mk,#D4AF37);stroke:var(--sk,none);stroke-width:var(--sw,0);stroke-linejoin:round"/><path d="M111.666 55.6048C125.366 55.4072 138.053 53.8655 147.91 65.4086C156.014 74.5475 154.233 86.1733 154.221 97.4361C154.214 103.499 154.456 110.399 153.941 116.512C149.14 116.957 139.744 116.76 134.742 116.713C127.812 116.652 118.472 116.943 111.696 116.418C111.15 110.057 111.459 96.5089 111.508 89.7814C111.587 79.1439 111.097 65.9944 111.666 55.6048Z" style="fill:var(--mk,#D4AF37);stroke:var(--sk,none);stroke-width:var(--sw,0);stroke-linejoin:round"/><path d="M76.9604 52.5C77.636 53.2763 98.2497 111.42 99.4892 116.476C92.7517 116.911 84.4113 116.695 77.5512 116.688C71.1108 116.699 60.9603 116.918 54.7521 116.39C55.874 112.03 58.7368 104.272 60.2843 99.7866C63.8047 89.5911 67.3934 79.4172 71.0501 69.272C72.8502 64.345 75.6598 57.4198 76.9604 52.5Z" style="fill:var(--mk,#D4AF37);stroke:var(--sk,none);stroke-width:var(--sw,0);stroke-linejoin:round"/><path d="M182.57 50H181.61V29.9H189.17C193.25 29.9 195.83 31.82 195.83 35.6C195.83 39.23 193.52 41.12 189.38 41.18C190.52 41.48 191.39 42.23 192.23 43.61L196.13 50H194.96L191.09 43.61C190.28 42.26 188.84 41.27 186.89 41.27H182.57V50ZM189.08 30.77H182.57V40.43H189.14C192.65 40.43 194.84 38.93 194.84 35.6C194.84 32.3 192.65 30.77 189.08 30.77ZM205.147 50.3C201.217 50.3 198.487 47.87 198.487 42.86C198.487 38.09 201.007 35.42 204.817 35.42C208.417 35.42 210.787 37.97 210.787 42.47C210.787 42.68 210.757 42.95 210.727 43.13H199.447C199.507 47.57 201.877 49.46 205.147 49.46C208.027 49.46 209.467 47.87 210.187 46.19L210.757 47C209.797 48.83 208.057 50.3 205.147 50.3ZM204.817 36.26C201.727 36.26 199.597 38.3 199.447 42.35H209.887C209.797 38.18 207.757 36.26 204.817 36.26ZM219.637 50.3C216.847 50.3 214.117 48.98 213.427 46.04L214.207 45.44C214.597 47.87 216.697 49.46 219.667 49.46C221.947 49.46 223.387 48.47 223.387 46.61C223.387 44.87 222.157 44.12 219.817 43.55L217.837 43.1C215.737 42.59 213.787 41.66 213.787 39.23C213.787 36.98 215.617 35.42 218.347 35.42C221.437 35.42 223.237 36.86 223.867 39.14L223.117 39.68C222.457 37.31 220.837 36.26 218.317 36.26C216.247 36.26 214.717 37.34 214.717 39.23C214.717 41.06 216.037 41.72 218.257 42.26L220.297 42.77C222.847 43.4 224.317 44.48 224.317 46.58C224.317 49.16 222.127 50.3 219.637 50.3ZM229.029 32.9H228.039V29.9H229.029V32.9ZM229.029 50H228.039V35.72H229.029V50ZM238.854 50.3C234.924 50.3 232.764 47.36 232.764 42.86C232.764 38.39 234.924 35.42 238.854 35.42C241.584 35.42 243.474 37.4 243.834 39.77V29.9H244.794V50H243.834V45.98C243.474 48.32 241.584 50.3 238.854 50.3ZM233.724 42.86C233.724 47.42 235.884 49.46 239.004 49.46C242.094 49.46 243.834 47.09 243.834 44.69V41.03C243.834 38.63 242.094 36.26 239.004 36.26C235.884 36.26 233.724 38.33 233.724 42.86ZM255.215 50.3C251.285 50.3 248.555 47.87 248.555 42.86C248.555 38.09 251.075 35.42 254.885 35.42C258.485 35.42 260.855 37.97 260.855 42.47C260.855 42.68 260.825 42.95 260.795 43.13H249.515C249.575 47.57 251.945 49.46 255.215 49.46C258.095 49.46 259.535 47.87 260.255 46.19L260.825 47C259.865 48.83 258.125 50.3 255.215 50.3ZM254.885 36.26C251.795 36.26 249.665 38.3 249.515 42.35H259.955C259.865 38.18 257.825 36.26 254.885 36.26ZM265.591 50H264.601V35.72H265.591V39.98C266.011 37.46 267.811 35.42 270.751 35.42C273.571 35.42 275.671 37.1 275.671 40.79V50H274.711V40.91C274.711 37.88 273.091 36.26 270.541 36.26C267.151 36.26 265.591 38.87 265.591 41.54V50ZM285.739 50.3C281.869 50.3 279.229 47.66 279.229 42.86C279.229 38.09 281.899 35.42 285.769 35.42C289.069 35.42 291.319 37.43 291.739 40.34L290.869 40.79C290.539 38.15 288.769 36.26 285.769 36.26C282.559 36.26 280.189 38.42 280.189 42.86C280.189 47.33 282.559 49.46 285.739 49.46C288.739 49.46 290.569 47.63 290.869 44.93L291.739 45.41C291.319 48.32 289.039 50.3 285.739 50.3ZM301.299 50.3C297.369 50.3 294.639 47.87 294.639 42.86C294.639 38.09 297.159 35.42 300.969 35.42C304.569 35.42 306.939 37.97 306.939 42.47C306.939 42.68 306.909 42.95 306.879 43.13H295.599C295.659 47.57 298.029 49.46 301.299 49.46C304.179 49.46 305.619 47.87 306.339 46.19L306.909 47C305.949 48.83 304.209 50.3 301.299 50.3ZM300.969 36.26C297.879 36.26 295.749 38.3 295.599 42.35H306.039C305.949 38.18 303.909 36.26 300.969 36.26Z" style="fill:var(--tx,#fff)"/><path d="M193.73 117H180.86V56.7H197.87L207.68 79.11L213.35 97.02L219.02 79.11L228.83 56.7H245.84V117H232.97V94.41L234.77 70.11L227.57 90.18L220.1 106.56H206.6L199.13 90.18L191.84 70.11L193.73 94.41V117ZM274.831 117.9C261.421 117.9 252.781 108.45 252.781 94.95C252.781 81.54 261.421 72 274.831 72C288.601 72 297.331 81.54 297.331 94.95C297.331 108.45 288.601 117.9 274.831 117.9ZM275.011 107.46C280.501 107.46 284.281 103.95 284.281 94.95C284.281 85.86 280.501 82.44 275.011 82.44C269.611 82.44 265.831 85.86 265.831 94.95C265.831 103.95 269.611 107.46 275.011 107.46ZM325.915 117.9C311.875 117.9 303.325 108.54 303.325 94.95C303.325 81.36 311.875 72 324.835 72C338.875 72 345.895 81.36 345.895 92.88C345.895 94.77 345.715 97.29 345.445 98.28H315.385C316.195 104.49 320.335 107.46 326.095 107.46C332.305 107.46 335.635 104.76 337.255 100.98L345.085 108.81C341.755 113.58 335.815 117.9 325.915 117.9ZM324.925 81.9C319.435 81.9 316.015 84.96 315.385 90.9H334.285C333.835 85.05 330.685 81.9 324.925 81.9ZM366.163 117H353.293V72.9H366.163V86.76C367.603 79.38 371.923 72 380.383 72C386.863 72 390.463 76.14 390.463 83.07C390.463 87.84 389.023 91.62 387.943 93.33H375.523C377.143 91.71 378.673 88.56 378.673 86.04C378.673 83.52 377.503 81.63 374.713 81.63C370.303 81.63 366.163 86.4 366.163 93.69V117ZM408.614 67.68H395.744V56.7H408.614V67.68ZM408.614 117H395.744V72.9H408.614V117ZM437.337 117.9C427.527 117.9 418.797 114.3 415.017 108.99L420.957 100.26C424.647 104.22 431.037 108.09 437.697 108.09C441.207 108.09 443.277 107.01 443.277 104.67C443.277 102.33 440.757 101.43 436.077 100.26L430.137 98.82C422.217 96.75 416.457 93.6 416.457 85.86C416.457 77.22 423.477 72.09 434.277 72.09C443.817 72.09 450.747 76.23 453.807 80.1L448.047 88.74C443.727 84.24 438.327 81.81 433.197 81.81C430.047 81.81 428.157 82.98 428.157 85.14C428.157 87.48 430.047 88.38 435.897 90L440.847 91.35C450.567 93.96 454.797 97.74 454.797 104.49C454.797 113.04 447.597 117.9 437.337 117.9Z" style="fill:var(--tx,#fff)"/></symbol>
-<symbol id="wm" viewBox="180 29 276 90"><path d="M182.57 50H181.61V29.9H189.17C193.25 29.9 195.83 31.82 195.83 35.6C195.83 39.23 193.52 41.12 189.38 41.18C190.52 41.48 191.39 42.23 192.23 43.61L196.13 50H194.96L191.09 43.61C190.28 42.26 188.84 41.27 186.89 41.27H182.57V50ZM189.08 30.77H182.57V40.43H189.14C192.65 40.43 194.84 38.93 194.84 35.6C194.84 32.3 192.65 30.77 189.08 30.77ZM205.147 50.3C201.217 50.3 198.487 47.87 198.487 42.86C198.487 38.09 201.007 35.42 204.817 35.42C208.417 35.42 210.787 37.97 210.787 42.47C210.787 42.68 210.757 42.95 210.727 43.13H199.447C199.507 47.57 201.877 49.46 205.147 49.46C208.027 49.46 209.467 47.87 210.187 46.19L210.757 47C209.797 48.83 208.057 50.3 205.147 50.3ZM204.817 36.26C201.727 36.26 199.597 38.3 199.447 42.35H209.887C209.797 38.18 207.757 36.26 204.817 36.26ZM219.637 50.3C216.847 50.3 214.117 48.98 213.427 46.04L214.207 45.44C214.597 47.87 216.697 49.46 219.667 49.46C221.947 49.46 223.387 48.47 223.387 46.61C223.387 44.87 222.157 44.12 219.817 43.55L217.837 43.1C215.737 42.59 213.787 41.66 213.787 39.23C213.787 36.98 215.617 35.42 218.347 35.42C221.437 35.42 223.237 36.86 223.867 39.14L223.117 39.68C222.457 37.31 220.837 36.26 218.317 36.26C216.247 36.26 214.717 37.34 214.717 39.23C214.717 41.06 216.037 41.72 218.257 42.26L220.297 42.77C222.847 43.4 224.317 44.48 224.317 46.58C224.317 49.16 222.127 50.3 219.637 50.3ZM229.029 32.9H228.039V29.9H229.029V32.9ZM229.029 50H228.039V35.72H229.029V50ZM238.854 50.3C234.924 50.3 232.764 47.36 232.764 42.86C232.764 38.39 234.924 35.42 238.854 35.42C241.584 35.42 243.474 37.4 243.834 39.77V29.9H244.794V50H243.834V45.98C243.474 48.32 241.584 50.3 238.854 50.3ZM233.724 42.86C233.724 47.42 235.884 49.46 239.004 49.46C242.094 49.46 243.834 47.09 243.834 44.69V41.03C243.834 38.63 242.094 36.26 239.004 36.26C235.884 36.26 233.724 38.33 233.724 42.86ZM255.215 50.3C251.285 50.3 248.555 47.87 248.555 42.86C248.555 38.09 251.075 35.42 254.885 35.42C258.485 35.42 260.855 37.97 260.855 42.47C260.855 42.68 260.825 42.95 260.795 43.13H249.515C249.575 47.57 251.945 49.46 255.215 49.46C258.095 49.46 259.535 47.87 260.255 46.19L260.825 47C259.865 48.83 258.125 50.3 255.215 50.3ZM254.885 36.26C251.795 36.26 249.665 38.3 249.515 42.35H259.955C259.865 38.18 257.825 36.26 254.885 36.26ZM265.591 50H264.601V35.72H265.591V39.98C266.011 37.46 267.811 35.42 270.751 35.42C273.571 35.42 275.671 37.1 275.671 40.79V50H274.711V40.91C274.711 37.88 273.091 36.26 270.541 36.26C267.151 36.26 265.591 38.87 265.591 41.54V50ZM285.739 50.3C281.869 50.3 279.229 47.66 279.229 42.86C279.229 38.09 281.899 35.42 285.769 35.42C289.069 35.42 291.319 37.43 291.739 40.34L290.869 40.79C290.539 38.15 288.769 36.26 285.769 36.26C282.559 36.26 280.189 38.42 280.189 42.86C280.189 47.33 282.559 49.46 285.739 49.46C288.739 49.46 290.569 47.63 290.869 44.93L291.739 45.41C291.319 48.32 289.039 50.3 285.739 50.3ZM301.299 50.3C297.369 50.3 294.639 47.87 294.639 42.86C294.639 38.09 297.159 35.42 300.969 35.42C304.569 35.42 306.939 37.97 306.939 42.47C306.939 42.68 306.909 42.95 306.879 43.13H295.599C295.659 47.57 298.029 49.46 301.299 49.46C304.179 49.46 305.619 47.87 306.339 46.19L306.909 47C305.949 48.83 304.209 50.3 301.299 50.3ZM300.969 36.26C297.879 36.26 295.749 38.3 295.599 42.35H306.039C305.949 38.18 303.909 36.26 300.969 36.26Z" style="fill:var(--tx,#fff)"/><path d="M193.73 117H180.86V56.7H197.87L207.68 79.11L213.35 97.02L219.02 79.11L228.83 56.7H245.84V117H232.97V94.41L234.77 70.11L227.57 90.18L220.1 106.56H206.6L199.13 90.18L191.84 70.11L193.73 94.41V117ZM274.831 117.9C261.421 117.9 252.781 108.45 252.781 94.95C252.781 81.54 261.421 72 274.831 72C288.601 72 297.331 81.54 297.331 94.95C297.331 108.45 288.601 117.9 274.831 117.9ZM275.011 107.46C280.501 107.46 284.281 103.95 284.281 94.95C284.281 85.86 280.501 82.44 275.011 82.44C269.611 82.44 265.831 85.86 265.831 94.95C265.831 103.95 269.611 107.46 275.011 107.46ZM325.915 117.9C311.875 117.9 303.325 108.54 303.325 94.95C303.325 81.36 311.875 72 324.835 72C338.875 72 345.895 81.36 345.895 92.88C345.895 94.77 345.715 97.29 345.445 98.28H315.385C316.195 104.49 320.335 107.46 326.095 107.46C332.305 107.46 335.635 104.76 337.255 100.98L345.085 108.81C341.755 113.58 335.815 117.9 325.915 117.9ZM324.925 81.9C319.435 81.9 316.015 84.96 315.385 90.9H334.285C333.835 85.05 330.685 81.9 324.925 81.9ZM366.163 117H353.293V72.9H366.163V86.76C367.603 79.38 371.923 72 380.383 72C386.863 72 390.463 76.14 390.463 83.07C390.463 87.84 389.023 91.62 387.943 93.33H375.523C377.143 91.71 378.673 88.56 378.673 86.04C378.673 83.52 377.503 81.63 374.713 81.63C370.303 81.63 366.163 86.4 366.163 93.69V117ZM408.614 67.68H395.744V56.7H408.614V67.68ZM408.614 117H395.744V72.9H408.614V117ZM437.337 117.9C427.527 117.9 418.797 114.3 415.017 108.99L420.957 100.26C424.647 104.22 431.037 108.09 437.697 108.09C441.207 108.09 443.277 107.01 443.277 104.67C443.277 102.33 440.757 101.43 436.077 100.26L430.137 98.82C422.217 96.75 416.457 93.6 416.457 85.86C416.457 77.22 423.477 72.09 434.277 72.09C443.817 72.09 450.747 76.23 453.807 80.1L448.047 88.74C443.727 84.24 438.327 81.81 433.197 81.81C430.047 81.81 428.157 82.98 428.157 85.14C428.157 87.48 430.047 88.38 435.897 90L440.847 91.35C450.567 93.96 454.797 97.74 454.797 104.49C454.797 113.04 447.597 117.9 437.337 117.9Z" style="fill:var(--tx,#fff)"/></symbol>
-<symbol id="lv" viewBox="0 0 274 220"><g transform="translate(67,0) scale(.9)"><path d="M1.14823 0.376201C15.2361 -0.306252 31.6897 -0.956003 43.6648 7.05554C46.2182 8.75251 48.5315 10.7851 50.5425 13.0988C53.3618 16.336 76.0944 47.8917 76.4761 49.8596L75.9353 50.1579C55.0495 49.9351 34.1079 50.3807 13.2182 50.1687C8.98548 50.1256 4.79301 50.3017 0.575389 49.8524C-0.133658 45.5148 0.19265 37.9568 0.159587 33.2924C0.0981343 24.6143 0.122216 15.8689 0.108919 7.18744C0.106044 5.36289 -0.105629 1.60598 1.14823 0.376201Z" style="fill:var(--mk,#D4AF37);stroke:var(--sk,none);stroke-width:var(--sw,0);stroke-linejoin:round"/><path d="M132.833 0.373895C137.711 -0.0526832 149.147 0.0285261 153.897 0.570823C154.41 5.91329 154.664 46.9704 153.67 49.6377C149.008 51.0788 108.033 50.1301 100.461 50.1337C92.8695 50.1624 84.9223 49.8677 77.37 50.1984C79.6355 47.7409 82.2841 43.0554 84.3024 40.1693C99.0975 19.0118 104.15 2.41263 132.833 0.373895Z" style="fill:var(--mk,#D4AF37);stroke:var(--sk,none);stroke-width:var(--sw,0);stroke-linejoin:round"/><path d="M30.9762 55.3773C34.9742 55.3449 38.4386 55.291 42.4334 55.5929C42.8456 61.8065 42.6073 70.622 42.6088 77.0081L42.5505 116.564C32.2922 116.838 21.4592 116.665 11.1566 116.654C7.56072 116.661 4.05034 116.723 0.462345 116.417C0.370345 115.386 0.298473 114.351 0.247442 113.316C0.00809778 108.159 0.358847 102.711 0.183831 97.6649C-0.351278 82.2657 -0.743713 67.3588 14.6799 58.9782C20.4303 55.8517 24.5239 55.636 30.9762 55.3773Z" style="fill:var(--mk,#D4AF37);stroke:var(--sk,none);stroke-width:var(--sw,0);stroke-linejoin:round"/><path d="M111.666 55.6048C125.366 55.4072 138.053 53.8655 147.91 65.4086C156.014 74.5475 154.233 86.1733 154.221 97.4361C154.214 103.499 154.456 110.399 153.941 116.512C149.14 116.957 139.744 116.76 134.742 116.713C127.812 116.652 118.472 116.943 111.696 116.418C111.15 110.057 111.459 96.5089 111.508 89.7814C111.587 79.1439 111.097 65.9944 111.666 55.6048Z" style="fill:var(--mk,#D4AF37);stroke:var(--sk,none);stroke-width:var(--sw,0);stroke-linejoin:round"/><path d="M76.9604 52.5C77.636 53.2763 98.2497 111.42 99.4892 116.476C92.7517 116.911 84.4113 116.695 77.5512 116.688C71.1108 116.699 60.9603 116.918 54.7521 116.39C55.874 112.03 58.7368 104.272 60.2843 99.7866C63.8047 89.5911 67.3934 79.4172 71.0501 69.272C72.8502 64.345 75.6598 57.4198 76.9604 52.5Z" style="fill:var(--mk,#D4AF37);stroke:var(--sk,none);stroke-width:var(--sw,0);stroke-linejoin:round"/></g><g transform="translate(-181.2,101.4)"><path d="M182.57 50H181.61V29.9H189.17C193.25 29.9 195.83 31.82 195.83 35.6C195.83 39.23 193.52 41.12 189.38 41.18C190.52 41.48 191.39 42.23 192.23 43.61L196.13 50H194.96L191.09 43.61C190.28 42.26 188.84 41.27 186.89 41.27H182.57V50ZM189.08 30.77H182.57V40.43H189.14C192.65 40.43 194.84 38.93 194.84 35.6C194.84 32.3 192.65 30.77 189.08 30.77ZM205.147 50.3C201.217 50.3 198.487 47.87 198.487 42.86C198.487 38.09 201.007 35.42 204.817 35.42C208.417 35.42 210.787 37.97 210.787 42.47C210.787 42.68 210.757 42.95 210.727 43.13H199.447C199.507 47.57 201.877 49.46 205.147 49.46C208.027 49.46 209.467 47.87 210.187 46.19L210.757 47C209.797 48.83 208.057 50.3 205.147 50.3ZM204.817 36.26C201.727 36.26 199.597 38.3 199.447 42.35H209.887C209.797 38.18 207.757 36.26 204.817 36.26ZM219.637 50.3C216.847 50.3 214.117 48.98 213.427 46.04L214.207 45.44C214.597 47.87 216.697 49.46 219.667 49.46C221.947 49.46 223.387 48.47 223.387 46.61C223.387 44.87 222.157 44.12 219.817 43.55L217.837 43.1C215.737 42.59 213.787 41.66 213.787 39.23C213.787 36.98 215.617 35.42 218.347 35.42C221.437 35.42 223.237 36.86 223.867 39.14L223.117 39.68C222.457 37.31 220.837 36.26 218.317 36.26C216.247 36.26 214.717 37.34 214.717 39.23C214.717 41.06 216.037 41.72 218.257 42.26L220.297 42.77C222.847 43.4 224.317 44.48 224.317 46.58C224.317 49.16 222.127 50.3 219.637 50.3ZM229.029 32.9H228.039V29.9H229.029V32.9ZM229.029 50H228.039V35.72H229.029V50ZM238.854 50.3C234.924 50.3 232.764 47.36 232.764 42.86C232.764 38.39 234.924 35.42 238.854 35.42C241.584 35.42 243.474 37.4 243.834 39.77V29.9H244.794V50H243.834V45.98C243.474 48.32 241.584 50.3 238.854 50.3ZM233.724 42.86C233.724 47.42 235.884 49.46 239.004 49.46C242.094 49.46 243.834 47.09 243.834 44.69V41.03C243.834 38.63 242.094 36.26 239.004 36.26C235.884 36.26 233.724 38.33 233.724 42.86ZM255.215 50.3C251.285 50.3 248.555 47.87 248.555 42.86C248.555 38.09 251.075 35.42 254.885 35.42C258.485 35.42 260.855 37.97 260.855 42.47C260.855 42.68 260.825 42.95 260.795 43.13H249.515C249.575 47.57 251.945 49.46 255.215 49.46C258.095 49.46 259.535 47.87 260.255 46.19L260.825 47C259.865 48.83 258.125 50.3 255.215 50.3ZM254.885 36.26C251.795 36.26 249.665 38.3 249.515 42.35H259.955C259.865 38.18 257.825 36.26 254.885 36.26ZM265.591 50H264.601V35.72H265.591V39.98C266.011 37.46 267.811 35.42 270.751 35.42C273.571 35.42 275.671 37.1 275.671 40.79V50H274.711V40.91C274.711 37.88 273.091 36.26 270.541 36.26C267.151 36.26 265.591 38.87 265.591 41.54V50ZM285.739 50.3C281.869 50.3 279.229 47.66 279.229 42.86C279.229 38.09 281.899 35.42 285.769 35.42C289.069 35.42 291.319 37.43 291.739 40.34L290.869 40.79C290.539 38.15 288.769 36.26 285.769 36.26C282.559 36.26 280.189 38.42 280.189 42.86C280.189 47.33 282.559 49.46 285.739 49.46C288.739 49.46 290.569 47.63 290.869 44.93L291.739 45.41C291.319 48.32 289.039 50.3 285.739 50.3ZM301.299 50.3C297.369 50.3 294.639 47.87 294.639 42.86C294.639 38.09 297.159 35.42 300.969 35.42C304.569 35.42 306.939 37.97 306.939 42.47C306.939 42.68 306.909 42.95 306.879 43.13H295.599C295.659 47.57 298.029 49.46 301.299 49.46C304.179 49.46 305.619 47.87 306.339 46.19L306.909 47C305.949 48.83 304.209 50.3 301.299 50.3ZM300.969 36.26C297.879 36.26 295.749 38.3 295.599 42.35H306.039C305.949 38.18 303.909 36.26 300.969 36.26Z" style="fill:var(--tx,#fff)"/><path d="M193.73 117H180.86V56.7H197.87L207.68 79.11L213.35 97.02L219.02 79.11L228.83 56.7H245.84V117H232.97V94.41L234.77 70.11L227.57 90.18L220.1 106.56H206.6L199.13 90.18L191.84 70.11L193.73 94.41V117ZM274.831 117.9C261.421 117.9 252.781 108.45 252.781 94.95C252.781 81.54 261.421 72 274.831 72C288.601 72 297.331 81.54 297.331 94.95C297.331 108.45 288.601 117.9 274.831 117.9ZM275.011 107.46C280.501 107.46 284.281 103.95 284.281 94.95C284.281 85.86 280.501 82.44 275.011 82.44C269.611 82.44 265.831 85.86 265.831 94.95C265.831 103.95 269.611 107.46 275.011 107.46ZM325.915 117.9C311.875 117.9 303.325 108.54 303.325 94.95C303.325 81.36 311.875 72 324.835 72C338.875 72 345.895 81.36 345.895 92.88C345.895 94.77 345.715 97.29 345.445 98.28H315.385C316.195 104.49 320.335 107.46 326.095 107.46C332.305 107.46 335.635 104.76 337.255 100.98L345.085 108.81C341.755 113.58 335.815 117.9 325.915 117.9ZM324.925 81.9C319.435 81.9 316.015 84.96 315.385 90.9H334.285C333.835 85.05 330.685 81.9 324.925 81.9ZM366.163 117H353.293V72.9H366.163V86.76C367.603 79.38 371.923 72 380.383 72C386.863 72 390.463 76.14 390.463 83.07C390.463 87.84 389.023 91.62 387.943 93.33H375.523C377.143 91.71 378.673 88.56 378.673 86.04C378.673 83.52 377.503 81.63 374.713 81.63C370.303 81.63 366.163 86.4 366.163 93.69V117ZM408.614 67.68H395.744V56.7H408.614V67.68ZM408.614 117H395.744V72.9H408.614V117ZM437.337 117.9C427.527 117.9 418.797 114.3 415.017 108.99L420.957 100.26C424.647 104.22 431.037 108.09 437.697 108.09C441.207 108.09 443.277 107.01 443.277 104.67C443.277 102.33 440.757 101.43 436.077 100.26L430.137 98.82C422.217 96.75 416.457 93.6 416.457 85.86C416.457 77.22 423.477 72.09 434.277 72.09C443.817 72.09 450.747 76.23 453.807 80.1L448.047 88.74C443.727 84.24 438.327 81.81 433.197 81.81C430.047 81.81 428.157 82.98 428.157 85.14C428.157 87.48 430.047 88.38 435.897 90L440.847 91.35C450.567 93.96 454.797 97.74 454.797 104.49C454.797 113.04 447.597 117.9 437.337 117.9Z" style="fill:var(--tx,#fff)"/></g></symbol>
 <clipPath id="clip-wing" clipPathUnits="objectBoundingBox"><path transform="scale(0.013072,0.019920)" d="M1.14823 0.376201C15.2361 -0.306252 31.6897 -0.956003 43.6648 7.05554C46.2182 8.75251 48.5315 10.7851 50.5425 13.0988C53.3618 16.336 76.0944 47.8917 76.4761 49.8596L75.9353 50.1579C55.0495 49.9351 34.1079 50.3807 13.2182 50.1687C8.98548 50.1256 4.79301 50.3017 0.575389 49.8524C-0.133658 45.5148 0.19265 37.9568 0.159587 33.2924C0.0981343 24.6143 0.122216 15.8689 0.108919 7.18744C0.106044 5.36289 -0.105629 1.60598 1.14823 0.376201Z"/></clipPath>
 <clipPath id="clip-ray" clipPathUnits="objectBoundingBox"><path transform="scale(0.022321,0.015528) translate(-54.7,-52.5)" d="M76.9604 52.5C77.636 53.2763 98.2497 111.42 99.4892 116.476C92.7517 116.911 84.4113 116.695 77.5512 116.688C71.1108 116.699 60.9603 116.918 54.7521 116.39C55.874 112.03 58.7368 104.272 60.2843 99.7866C63.8047 89.5911 67.3934 79.4172 71.0501 69.272C72.8502 64.345 75.6598 57.4198 76.9604 52.5Z"/></clipPath>
 </defs></svg>
@@ -809,7 +841,7 @@ body.atelier .atelier-only{display:inline-flex}
 <header class="topbar lt">
   <a class="brand" href="#couverture" aria-label="Retour à la couverture">
     <svg class="mk on-nuit" viewBox="0 0 155 117" width="34" height="26"><use href="#mk"/></svg>
-    <span class="where caps" id="where">Charte graphique</span>
+    <span class="where caps" id="where">Proposition de charte graphique</span>
   </a>
   <div class="actions">
     <button class="pill atelier-toggle" id="atelierBtn" aria-pressed="true" title="Afficher ou masquer les prompts d'images">
@@ -839,13 +871,14 @@ body.atelier .atelier-only{display:inline-flex}
   <div class="wrap">
     <div class="grid">
       <div>
-        <span class="eyebrow">Charte graphique 2026</span>
-        <h1 aria-label="Une nouvelle ère se lève.">
-          <span class="l"><span>Une nouvelle</span></span>
-          <span class="l"><span><em>ère</em></span></span>
-          <span class="l"><span>se lève.</span></span>
+        <span class="eyebrow">Proposition</span>
+        <h1 aria-label="Une identité pour la nouvelle ère.">
+          <span class="l"><span>Une identité</span></span>
+          <span class="l"><span>pour la</span></span>
+          <span class="l"><span><em>nouvelle ère.</em></span></span>
         </h1>
-        <p class="sub">Le logo, les couleurs, les lettres et la manière de les porter. L'identité d'une grande adresse sur les rives du lac Togo.</p>
+        <p class="kicker">Proposition de charte graphique pour la nouvelle ère de la Résidence&nbsp;Moeris.</p>
+        <p class="sub">Le logo, les couleurs, les lettres et la manière de les porter&nbsp;: une base de travail, soumise à votre regard, pour une grande adresse sur les rives du lac Togo.</p>
       </div>
       <div class="mark" id="coverMark" role="img" aria-label="Monogramme M de Résidence Moeris, composé de cinq pièces"></div>
     </div>
@@ -905,7 +938,7 @@ body.atelier .atelier-only{display:inline-flex}
         <figcaption><span>Ancien logo</span><span class="muted">Première ère</span></figcaption>
       </figure>
       <figure class="rv d1">
-        <div class="pane stagebox"><svg class="lg on-ivoire" viewBox="0 0 457 118" role="img" aria-label="Nouveau logo Résidence Moeris"><use href="#lg"/></svg></div>
+        <div class="pane stagebox new"><svg class="lg on-blanc" viewBox="0 0 457 118" role="img" aria-label="Nouveau logo Résidence Moeris"><use href="#lg"/></svg></div>
         <figcaption><b>Nouveau logo</b><span class="muted">Nouvelle ère</span></figcaption>
       </figure>
     </div>
@@ -946,12 +979,10 @@ body.atelier .atelier-only{display:inline-flex}
         </div>
       </div>
     </div>
-    <div class="versions-head rv"><h3 class="ere-h">Un système, <em>quatre versions.</em></h3><p class="muted">Chaque version a sa place, de l'enseigne au favicon.</p></div>
+    <div class="versions-head rv"><h3 class="ere-h">Un système, <em>deux versions.</em></h3><p class="muted">Le logo complet partout où la place le permet, le monogramme quand elle manque. Rien d'autre.</p></div>
     <ul class="versions">
-      <li class="rv"><div class="vv"><svg class="mk on-ivoire" viewBox="0 0 155 117" style="width:34%"><use href="#mk"/></svg></div><b>Monogramme seul</b><span>Favicon, icône d'application, avatar, broderie, tampon, cachet.</span></li>
-      <li class="rv d1"><div class="vv"><svg class="lg on-ivoire" viewBox="0 0 457 118" style="width:78%"><use href="#lg"/></svg></div><b>Logo horizontal</b><span>La version complète, par défaut.</span></li>
-      <li class="rv d2"><div class="vv"><svg class="lv on-ivoire" viewBox="0 0 274 220" style="width:40%"><use href="#lv"/></svg></div><b>Logo vertical</b><span>Les espaces hauts ou étroits : kakémono, totem, étiquette.</span></li>
-      <li class="rv d3"><div class="vv"><svg class="wm on-ivoire" viewBox="0 0 276 90" style="width:56%"><use href="#wm"/></svg></div><b>Logotype</b><span>Le nom seul, quand le monogramme est déjà là.</span></li>
+      <li class="rv"><div class="vv"><svg class="lg on-blanc" viewBox="0 0 457 118" style="width:72%"><use href="#lg"/></svg></div><b>Logo horizontal <small>aussi appelé logotype</small></b><span>La version complète : le M d'or, « Residence » et « Moeris ». C'est la signature par défaut, partout où la place le permet.</span></li>
+      <li class="rv d1"><div class="vv"><svg class="mk on-ivoire" viewBox="0 0 155 117" style="width:30%"><use href="#mk"/></svg></div><b>Monogramme seul</b><span>Le M d'or, seul, pour les petits formats : favicon, icône d'application, avatar, broderie, tampon, cachet.</span></li>
     </ul>
     <p class="alpha rv">Enfin, les cinq pièces forment un alphabet. Ailes, arches et rayon composent des pictogrammes pleins : chambres, restaurant, spa, piscine, événements, wi-fi. <a href="#icones">Voir les pictogrammes, chapitre 05 →</a></p>
   </div>
@@ -1168,17 +1199,13 @@ body.atelier .atelier-only{display:inline-flex}
   <div class="wrap">
     <div class="head rv prose">
       <span class="eyebrow">Déclinaisons</span>
-      <h2 class="sheet-title">Quatre formes, <em>un seul système.</em></h2>
-      <p>Le logo horizontal sert par défaut. Le logo vertical se réserve aux espaces étroits ou hauts. Le monogramme seul porte ce que l'ancien logo ne pouvait pas porter : favicon, icône d'application, avatar, broderie, tampon, cachet. Le logotype seul n'est admis que lorsque le monogramme apparaît juste à côté.</p>
-      <p>Une seule règle : la place décide de la version. Jamais l'inverse.</p>
+      <h2 class="sheet-title">Deux versions, <em>un seul système.</em></h2>
+      <p>Le logo horizontal, aussi appelé logotype, est la version complète : le monogramme M en or, « Residence » en fin et « Moeris » en gras. Il signe par défaut, partout où la place le permet.</p>
+      <p>Le monogramme seul porte ce que l'ancien logo ne pouvait pas porter : favicon, icône d'application, avatar, broderie, tampon, cachet, et tous les petits formats. Il n'existe pas d'autre version. Une seule règle : la place décide de la version, jamais l'inverse.</p>
     </div>
-    <div class="cols-2 rv" style="grid-template-columns:1.2fr 1fr;align-items:stretch">
-      <div class="tile bg-ivoire on-ivoire" style="--ar:auto;min-height:100%;grid-row:span 2;padding:10%"><svg class="lv" viewBox="0 0 274 220"><use href="#lv"/></svg><span class="tag">Logo vertical</span></div>
-      <div class="tile bg-blanc on-blanc" style="--ar:16/8"><svg class="lg" viewBox="0 0 457 118" style="width:78%"><use href="#lg"/></svg><span class="tag">Logo horizontal, par défaut</span></div>
-      <div class="cols-2" style="gap:16px;grid-template-columns:1fr 1fr">
-        <div class="tile bg-blanc on-blanc" style="--ar:1/1"><svg class="mk" viewBox="0 0 155 117"><use href="#mk"/></svg><span class="tag">Monogramme</span></div>
-        <div class="tile bg-ivoire on-ivoire" style="--ar:1/1"><svg class="wm" viewBox="0 0 276 90"><use href="#wm"/></svg><span class="tag">Logotype</span></div>
-      </div>
+    <div class="decl rv">
+      <div class="tile bg-blanc on-blanc"><svg class="lg" viewBox="0 0 457 118" style="width:76%"><use href="#lg"/></svg><span class="tag">Logo horizontal (logotype), par défaut</span></div>
+      <div class="tile bg-ivoire on-ivoire"><svg class="mk" viewBox="0 0 155 117" style="width:40%"><use href="#mk"/></svg><span class="tag">Monogramme seul, petits formats</span></div>
     </div>
   </div>
 </section>
@@ -1389,7 +1416,7 @@ body.atelier .atelier-only{display:inline-flex}
       <p>Le sous-titre vaut environ 60 % du titre, le texte courant 25 %, la légende 17 %. Interligne de 1,05 pour les titres et de 1,6 pour le texte. Pas de texte justifié. Pas de titre en capitales : les capitales espacées sont réservées aux petites étiquettes de 12 px.</p>
     </div>
     <div class="hier rv">
-      <div class="h"><small>Titre, ExtraBold</small><div class="t-h1">Une nouvelle ère se lève.</div></div>
+      <div class="h"><small>Titre, ExtraBold</small><div class="t-h1">Une identité pour la nouvelle ère.</div></div>
       <div class="h"><small>Sous-titre, Bold</small><div class="t-h2">Suites, pilotis et lac.</div></div>
       <div class="h"><small>Intertitre, Bold</small><div class="t-h3">Le dîner est servi dès 19 h</div></div>
       <div class="h"><small>Texte, Satoshi</small><div class="t-body">Chaque suite s'ouvre sur le lac. Le linge est neuf, la lumière est douce, et le matin entre par la fenêtre.</div></div>
@@ -1451,7 +1478,7 @@ body.atelier .atelier-only{display:inline-flex}
     <div class="head rv prose">
       <span class="eyebrow">Motifs</span>
       <h2 class="sheet-title">Quatre trames pour habiller.</h2>
-      <p>Les motifs répètent les pièces du logo. On les utilise en fond, entre 8 et 20 % d'opacité, ou en aplat franc pour un accent. Jamais en pleine force derrière du texte.</p>
+      <p>Chaque motif répète une pièce du logo, dans l'ordre de sa construction : le rayon, les ailes, les arches, puis le monogramme entier. Toujours droites, à pas régulier, en quinconce. En fond, entre 8 et 20 % d'opacité, ou en aplat franc pour un accent. Jamais en pleine force derrière du texte.</p>
     </div>
     <div class="pats rv" id="pats"></div>
   </div>
@@ -2428,18 +2455,40 @@ function buildGraphics(){
 
   $("#icons").innerHTML=ICONS.map(i=>`<div class="ico-t"><svg viewBox="0 0 24 24">${i[1]}</svg><span>${i[0]}</span></div>`).join("");
 
-  const pat=(id,w,h,inner)=>`<pattern id="${id}" width="${w}" height="${h}" patternUnits="userSpaceOnUse">${inner}</pattern>`;
-  const tile=(id,bg,label,w,h,inner,lblc)=>`<div class="pat" style="background:${bg}"><svg class="bgp"><defs>${pat(id,w,h,inner)}</defs><rect width="100%" height="100%" fill="url(#${id})"/></svg><span class="lbl">${label}</span></div>`;
-  const g="#D4AF37";
-  const A=pieceAt("al",6,5,.5,g,.9)+pieceAt("ar",37,5,.5,g,.9)+pieceAt("ar",6,42,.5,g,.55)+pieceAt("al",37,42,.55,g,.55);
-  const B=pieceAt("ra",9,3,.4,"#F6F0E2",.2)+pieceAt("ra",9,32,.4,"#F6F0E2",.2,180);
-  const C=pieceAt("wl",2,3,.42,"#7A5C0C",.28)+pieceAt("wr",34,3,.42,"#7A5C0C",.28)+pieceAt("wr",2,27,.42,"#7A5C0C",.28)+pieceAt("wl",34,27,.42,"#7A5C0C",.28);
-  const D=pieceAt("wl",0,0,0,"none",0)+`<g transform="translate(8,6) scale(.3)">${piecesSVG()}</g>`+`<g transform="translate(43,34) scale(.3)">${piecesSVG()}</g>`;
-  $("#pats").innerHTML=
-    tile("pA","#0B1A1B","Arches",70,80,A)+
-    tile("pB","#14393B","Rayons",38,62,B)+
-    tile("pC","#EFE7D3","Ailes",66,52,C)+
-    tile("pD","#0B1A1B","Monogramme",78,66,D);
+  /* Motifs : chaque trame répète une pièce réelle du logo, droite, à pas régulier,
+     en quinconce (une rangée sur deux décalée d'un demi-pas). Seules les pièces entières
+     sont posées et l'ensemble est centré : aucune forme coupée au bord de la tuile.
+     Même échelle pour les quatre trames (viewBox 1400 x 875). */
+  const VW=1400,VH=875,MG=60;
+  const shape=(keys,dx={})=>{ // pièces posées dans le repère du monogramme, puis ramenées en 0,0
+    const xs=[],ys=[];keys.forEach(k=>{const b=BB[k],o=dx[k]||0;xs.push(b[0]+o,b[2]+o);ys.push(b[1],b[3]);});
+    const x0=Math.min(...xs),y0=Math.min(...ys);
+    return {w:Math.max(...xs)-x0,h:Math.max(...ys)-y0,
+      g:keys.map(k=>`<path d="${PCS[k]}" transform="translate(${((dx[k]||0)-x0).toFixed(2)},${(-y0).toFixed(2)})"/>`).join("")};
+  };
+  const MOTIFS=[
+    {id:"mRa",name:"Rayon",n:"01",sh:shape(["ra"]),W:118,H:108,bg:"#FFFFFF",fg:"#D4AF37",line:true,
+     use:"Papeterie : dos des cartes de visite, cartes-clés, papier de soie, enveloppes."},
+    {id:"mWi",name:"Ailes",n:"02",sh:shape(["wl","wr"]),W:236,H:106,bg:"#F6F0E2",fg:"#14393B",
+     use:"Linge : bordures de serviettes et de peignoirs, housses de coussin, rideaux."},
+    {id:"mAr",name:"Arches",n:"03",sh:shape(["al","ar"],{ar:(BB.al[2]+12)-BB.ar[0]}),W:166,H:114,bg:"#EFE7D3",fg:"#B08F25",
+     use:"Signalétique et espaces : reliefs muraux, vitrophanie, portes et cloisons."},
+    {id:"mMk",name:"Monogramme",n:"04",sh:shape(ORDER),W:256,H:180,bg:"#0B1A1B",fg:"#D4AF37",
+     use:"Packaging : coffrets, sacs, papier cadeau, doublures et boîtes."}
+  ];
+  const motifSVG=m=>{
+    const {w,h,g}=m.sh,pos=[];
+    const rows=Math.floor((VH-2*MG-h)/m.H)+1;
+    const cols=Math.floor((VW-2*MG-w)/m.W)+1; // rangées paires : cols pièces ; impaires : cols-1, centrées entre elles
+    for(let r=0;r<rows;r++){
+      const odd=r%2, c=odd?cols-1:cols;
+      for(let i=0;i<c;i++)pos.push([i*m.W+(odd?m.W/2:0),r*m.H]);
+    }
+    const mx=Math.max(...pos.map(p=>p[0]))+w,my=Math.max(...pos.map(p=>p[1]))+h;
+    const ox=(VW-mx)/2,oy=(VH-my)/2;
+    return `<svg class="bgp" viewBox="0 0 ${VW} ${VH}" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><defs><g id="${m.id}">${g}</g></defs><rect width="${VW}" height="${VH}" fill="${m.bg}"/><g fill="${m.fg}">${pos.map(p=>`<use href="#${m.id}" x="${(p[0]+ox).toFixed(1)}" y="${(p[1]+oy).toFixed(1)}"/>`).join("")}</g></svg>`;
+  };
+  $("#pats").innerHTML=MOTIFS.map(m=>`<figure class="pat-f"><div class="pat${m.line?" line":""}">${motifSVG(m)}</div><figcaption><span class="pn">${m.n}</span><b>${m.name}</b><span class="pu">${m.use}</span></figcaption></figure>`).join("");
 }
 
 /* ==========================================================================
@@ -2554,7 +2603,7 @@ function navigation(){
     secs.forEach(s=>{if(s.getBoundingClientRect().top<=innerHeight*0.45)cur=s;});
     let under=null;$$("main > section").forEach(x=>{const r=x.getBoundingClientRect();if(r.top<=30&&r.bottom>30)under=x;});
     $(".topbar").classList.toggle("lt",!(under&&under.classList.contains("deep")));
-    where.textContent=cur.dataset.chap==="Couverture"?"Charte graphique":cur.dataset.chap;
+    where.textContent=cur.dataset.chap==="Couverture"?"Proposition de charte graphique":cur.dataset.chap;
     $$("#rail a").forEach(a=>a.classList.toggle("on",a.dataset.t===cur.id));
   }
   addEventListener("scroll",()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});
